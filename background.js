@@ -11,7 +11,9 @@ chrome.tabs.onUpdated.addListener(((tabId, changeInfo, tab) => {
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.message === 'guess_word') {
-        chrome.tabs.sendMessage(request.payload.tab.id, {});
+        chrome.tabs.sendMessage(request.payload.tab.id, {
+            'task': 'guess_word'
+        });
     }
 
     return true;
