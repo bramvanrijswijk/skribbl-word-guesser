@@ -7,3 +7,5 @@
 4. The chrome extension is now installed in the browser.
 
 When you make changes in the code, you have to refresh the extension (for changes in background.js).
+
+test commit
