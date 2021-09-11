@@ -18,7 +18,22 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     fetch(url, options)
         .then(response => response.json())
         .then(data => {
-            skribblInput.value = data[0].word;
+            const amountWords = data.length;
+            let currentIndex = 0;
+
+            setInterval(function() {
+                skribblInput.value = data[currentIndex].word;
+
+                form.dispatchEvent(
+                    new Event('submit', {
+                        bubbles: true,
+                        cancelable: true,
+                    })
+                );
+
+                currentIndex++;
+                console.log(currentIndex);
+            }, 3000);
         });
 
     return true;
